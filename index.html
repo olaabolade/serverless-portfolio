@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Cloud Portfolio</title>
+    <style>
+        /* Modern CSS Reset & Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Header & Navigation */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .title {
+            color: #7f8c8d;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* About Section */
+        .about p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Projects Section */
+        .project {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3498db;
+        }
+        .project h3 {
+            color: #2c3e50;
+        }
+        .project p {
+            margin: 0.5rem 0;
+        }
+        .tech-stack {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ola Abolade</h1>
+            <p class="title">AWS Cloud Engineer & DevOps Enthusiast</p>
+        </header>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm a cloud enthusiast passionate about building scalable, cost-efficient, and secure infrastructure on AWS. I specialize in serverless architectures, infrastructure as code (IaC), and automating deployment pipelines.</p>
+            <p>This portfolio site itself is a demonstration of my skills! It's a serverless application built with AWS S3, CloudFront, Lambda, and CodePipeline, showcasing my ability to leverage modern cloud native technologies.</p>
+        </section>
+
+        <section class="projects">
+            <h2>Featured Project</h2>
+            <div class="project">
+                <h3>Serverless Portfolio Auto-Deployer</h3>
+                <p>A completely serverless, event-driven portfolio website that automatically updates itself upon content changes. Pushing a new resume PDF to a GitHub repository triggers an instant rebuild and deployment.</p>
+                <p class="tech-stack"><strong>AWS Services:</strong> S3, CloudFront, Lambda, CodePipeline, IAM, Route53, ACM</p>
+                <p class="tech-stack"><strong>Concepts:</strong> CI/CD, GitOps, Infrastructure as Code (IaC), Serverless Computing</p>
+            </div>
+            <!-- You can add more project divs here later -->
+        </section>
+
+        <section class="skills">
+            <h2>Core Skills & Technologies</h2>
+            <ul>
+                <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, Lambda, IAM, VPC, CloudFront, CloudWatch)</li>
+                <li><strong>Infrastructure as Code:</strong> Terraform, AWS CloudFormation</li>
+                <li><strong>CI/CD & DevOps:</strong> AWS CodePipeline, GitHub Actions, Docker</li>
+                <li><strong>Scripting:</strong> Python, Bash, PowerShell</li>
+                <li><strong>Monitoring:</strong> Amazon CloudWatch, AWS X-Ray</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Get In Touch</h2>
+            <p>
+                <a href="https://www.linkedin.com/in/ola-abolade-1b144670?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+                <a href="https://github.com/olaabolade" target="_blank">GitHub</a>
+                <a href="mailto:olaabolade@gmail.com">Email</a>
+            </p>
+            <p><a href="resume.pdf" download>Download My Resume</a></p>
+        </section>
+
+        <footer>
+            <p>© <span id="current-year"></span> Olatilewa Abolade. Hosted proudly on AWS.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple JS to add the current year to the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
