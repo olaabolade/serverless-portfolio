@@ -7,4 +7,5 @@ This is an automated portfolio website that updates itself when new files are pu
 - AWS Lambda (Processing)
 - AWS CodePipeline (CI/CD)
 - GitHub (Source Control)
-- Test automated deployment
+- Test automated deployment: [31/08/25/4.47]
+
