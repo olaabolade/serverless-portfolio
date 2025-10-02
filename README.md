@@ -1,6 +1,6 @@
 ﻿# Serverless Portfolio
 
-This is an automated portfolio website that updates itself when new files are pushed to GitHub.
+This is an automated portfolio website that updates itself when new files are pushed to GitHub..
 
 ## Architecture
 - AWS S3 (Hosting)
