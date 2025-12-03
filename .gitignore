@@ -1,0 +1,16 @@
+﻿*.txt
+*.pdf
+*.zip
+*.py
+*.json
+.github_PAC_token.txt
+resume.pdf
+function.zip
+lambda_function.py
+.aws-sam/
+output.json
+test-event.json
+test_payload.json
+.vs/
+.vscode/
+.idea/
