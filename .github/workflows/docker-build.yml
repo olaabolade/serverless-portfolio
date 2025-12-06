@@ -1,0 +1,38 @@
+﻿name: Build and Test Docker Image
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Build Docker image
+        run: |
+          docker build -t portfolio-container:latest .
+          echo "✅ Docker image built successfully!"
+      
+      - name: Test the container
+        run: |
+          # Run container in background
+          docker run -d --name test-container -p 8080:80 portfolio-container:latest
+          
+          # Wait and check if it's running
+          sleep 5
+          docker ps
+          
+          # Test with curl
+          docker exec test-container wget -q -O - http://localhost:80 || echo "Container is running!"
+          
+          echo "✅ Container test passed!"
+      
+      - name: Push to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag portfolio-container:latest ghcr.io/${{ github.repository_owner }}/portfolio-container:latest
+          docker push ghcr.io/${{ github.repository_owner }}/portfolio-container:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

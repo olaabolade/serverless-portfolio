@@ -1,25 +1,11 @@
-﻿# Ignore ALL configuration files
+﻿function/
+serverless-portfolio/
 *.json
 *.py
 *.zip
 *.txt
-*.pdf
-
-# Ignore directories
-function/
-serverless-portfolio/
-.git/
-.vs/
-.vscode/
-
-# Ignore specific files
-README.md
 resume.pdf
-function.zip
-lambda_function.py
-github_PAC_token.txt
-
-# Only include these
-!index.html
-!*.css
-!*.js
+README.md
+.git/
+.github/
+.aws-sam/
