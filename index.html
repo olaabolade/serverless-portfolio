@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Cloud Portfolio</title>
+    <title>Loading...</title>
     <style>
-        /* Modern CSS Reset & Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,25 +21,28 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
-        /* Header & Navigation */
         header {
             text-align: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid #eaeaea;
         }
+        #owner-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
         h1 {
             color: #2c3e50;
             margin-bottom: 0.5rem;
         }
-        .title {
+        #owner-title {
             color: #7f8c8d;
             font-weight: normal;
             margin-bottom: 1rem;
         }
-
-        /* Sections */
         section {
             margin-bottom: 2.5rem;
         }
@@ -50,14 +52,13 @@
             padding-bottom: 0.5rem;
             border-bottom: 1px solid #eaeaea;
         }
-
-        /* About Section */
-        .about p {
+        #owner-bio {
+            line-height: 1.6;
+        }
+        #owner-bio p {
             margin-bottom: 1rem;
             text-align: justify;
         }
-
-        /* Projects Section */
         .project {
             background: #f9f9f9;
             padding: 15px;
@@ -76,8 +77,15 @@
             color: #666;
             font-style: italic;
         }
-
-        /* Contact Section */
+        #skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        #skills-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #3498db;
+        }
         .contact a {
             color: #3498db;
             text-decoration: none;
@@ -86,16 +94,12 @@
         .contact a:hover {
             text-decoration: underline;
         }
-
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 2rem;
             color: #7f8c8d;
             font-size: 0.9em;
         }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             body { padding: 10px; }
             .container { padding: 15px; }
@@ -105,55 +109,91 @@
 <body>
     <div class="container">
         <header>
-            <h1>Ola Abolade</h1>
-            <p class="title">AWS Cloud Engineer & DevOps Enthusiast</p>
+            <img id="owner-avatar" src="images/avatar-placeholder.jpg" alt="Avatar">
+            <h1 id="owner-name">Loading...</h1>
+            <p id="owner-title">Loading...</p>
         </header>
 
         <section class="about">
             <h2>About Me</h2>
-            <p>Hello! I'm a cloud enthusiast passionate about building scalable, cost-efficient, and secure infrastructure on AWS. I specialize in serverless architectures, infrastructure as code (IaC), and automating deployment pipelines.</p>
-            <p>This portfolio site itself is a demonstration of my skills! It's a serverless application built with AWS S3, CloudFront, Lambda, and CodePipeline, showcasing my ability to leverage modern cloud native technologies.</p>
+            <div id="owner-bio">Loading bio...</div>
         </section>
 
         <section class="projects">
-            <h2>Featured Project</h2>
-            <div class="project">
-                <h3>Serverless Portfolio Auto-Deployer</h3>
-                <p>A completely serverless, event-driven portfolio website that automatically updates itself upon content changes. Pushing a new resume PDF to a GitHub repository triggers an instant rebuild and deployment.</p>
-                <p class="tech-stack"><strong>AWS Services:</strong> S3, CloudFront, Lambda, CodePipeline, IAM, Route53, ACM</p>
-                <p class="tech-stack"><strong>Concepts:</strong> CI/CD, GitOps, Infrastructure as Code (IaC), Serverless Computing</p>
+            <h2>Featured Projects</h2>
+            <div id="projects-container">
             </div>
-            <!-- You can add more project divs here later -->
         </section>
 
         <section class="skills">
             <h2>Core Skills & Technologies</h2>
-            <ul>
-                <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, Lambda, IAM, VPC, CloudFront, CloudWatch)</li>
-                <li><strong>Infrastructure as Code:</strong> Terraform, AWS CloudFormation</li>
-                <li><strong>CI/CD & DevOps:</strong> AWS CodePipeline, GitHub Actions, Docker</li>
-                <li><strong>Scripting:</strong> Python, Bash, PowerShell</li>
-                <li><strong>Monitoring:</strong> Amazon CloudWatch, AWS X-Ray</li>
+            <ul id="skills-list">
             </ul>
         </section>
 
         <section class="contact">
             <h2>Get In Touch</h2>
             <p>
-                <a href="https://www.linkedin.com/in/ola-abolade-1b144670?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
-                <a href="https://github.com/olaabolade" target="_blank">GitHub</a>
-                <a href="mailto:olaabolade@gmail.com">Email</a>
+                <a id="linkedin-link" href="#">LinkedIn</a>
+                <a id="github-link" href="#">GitHub</a>
+                <a id="twitter-link" href="#">Twitter</a>
+                <a id="owner-email" href="#">Email</a>
             </p>
-            <p><a href="resume.pdf" download>Download My Resume</a></p>
+            <p><a id="resume-link" href="#">Download My Resume</a></p>
         </section>
 
         <footer>
-            <p>© <span id="current-year"></span> Olatilewa Abolade. Hosted proudly on AWS.</p>
+            <p>© <span id="current-year"></span> <span id="owner-name-footer"></span>. Hosted proudly on AWS.</p>
         </footer>
     </div>
 
     <script>
-        // Simple JS to add the current year to the footer
+        fetch('config.json')
+            .then(response => response.json())
+            .then(config => {
+                document.getElementById('owner-name').innerText = config.owner.name;
+                document.getElementById('owner-name-footer').innerText = config.owner.name;
+                document.getElementById('owner-title').innerText = config.owner.title;
+                document.getElementById('owner-bio').innerHTML = config.owner.bio;
+                
+                if (config.owner.avatar) {
+                    document.getElementById('owner-avatar').src = config.owner.avatar;
+                }
+                
+                document.getElementById('github-link').href = config.social.github;
+                document.getElementById('linkedin-link').href = config.social.linkedin;
+                if (config.social.twitter) {
+                    document.getElementById('twitter-link').href = config.social.twitter;
+                } else {
+                    document.getElementById('twitter-link').style.display = 'none';
+                }
+                document.getElementById('owner-email').href = 'mailto:' + config.owner.email;
+                document.getElementById('owner-email').innerText = config.owner.email;
+                
+                if (config.resume) {
+                    document.getElementById('resume-link').href = config.resume;
+                }
+                
+                const projectsContainer = document.getElementById('projects-container');
+                projectsContainer.innerHTML = config.projects.map(project => `
+                    <div class="project">
+                        <h3>${project.name}</h3>
+                        <p>${project.description}</p>
+                        <p class="tech-stack"><strong>Technologies:</strong> ${project.tech.join(', ')}</p>
+                        ${project.link ? `<p><a href="${project.link}" target="_blank">View Project ?</a></p>` : ''}
+                    </div>
+                `).join('');
+                
+                const skillsList = document.getElementById('skills-list');
+                skillsList.innerHTML = config.skills.map(skill => `
+                    <li><strong>${skill.category}:</strong> ${skill.items}</li>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Error loading config.json:', error);
+                document.getElementById('owner-bio').innerHTML = '<p>Unable to load configuration. Please ensure config.json exists in the same folder.</p>';
+            });
+        
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>

@@ -1,0 +1,29 @@
+{
+  "owner": {
+    "name": "Your Name Here",
+    "title": "Your Job Title Here",
+    "bio": "<p>Your bio goes here. Write a few sentences about yourself.</p>",
+    "email": "your@email.com",
+    "avatar": "images/avatar-placeholder.jpg"
+  },
+  "social": {
+    "github": "https://github.com/yourusername",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "twitter": ""
+  },
+  "resume": "resume.pdf",
+  "projects": [
+    {
+      "name": "Your Project Name",
+      "description": "Describe what this project does",
+      "tech": ["Tech 1", "Tech 2", "Tech 3"],
+      "link": "https://github.com/yourusername/project"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Category Name",
+      "items": "Skill 1, Skill 2, Skill 3"
+    }
+  ]
+}
